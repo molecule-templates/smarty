@@ -1,0 +1,12 @@
+Global:
+  tool: build_submitter
+
+Default:
+  profile: [compile]
+
+Profiles:
+  - profile:
+    name: compile
+    env: smarty
+    command: sh ./bin/build.sh
+    release: true
