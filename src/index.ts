@@ -22,7 +22,8 @@ export class {{Uppername}}Controller implements Controller {
   parse (data: OriginData) {
     let { a, b } = data
     // 处理原始数据
-    a += 'afterParse';
+    a = 'this is a molecule module';
+    b = 'hello Molecule'
     return { a, b } as ParsedData
   }
 
