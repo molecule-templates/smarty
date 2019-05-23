@@ -28,7 +28,7 @@ gulp.task('build:ts', function () {
     .pipe(tsProject())
     .pipe(amd({
       baseUrl: path.resolve('./src/static/script/'),
-      prefix: '@molecule/{{name}}',
+      prefix: '@molecule/{{projectName}}',
       // 不参与amd-hook分析的文件
       exlude: ['/dist/**']
     }))
@@ -51,7 +51,7 @@ gulp.task('deploy', function () {
       {
         host: HOST,
         match: '/**/*',
-        to: '/home/work/odp/template/molecules/{{name}}'
+        to: '/home/work/odp/template/molecules/{{projectName}}'
       }
     ]))
 })

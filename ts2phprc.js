@@ -1,5 +1,5 @@
 module.exports = {
-  getNamespace: () => 'molecules\\{{name}}',
+  getNamespace: () => 'molecules\\{{projectName}}',
   compilerOptions: require('./tsconfig.json').compilerOptions,
   modules: {
     '@baidu/molecule': {

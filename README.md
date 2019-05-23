@@ -1,4 +1,4 @@
-# {{name}}e module
+# {{projectName}} module
 
 wise 下的顶部提示模块
 
@@ -30,5 +30,5 @@ module.exports = {
 * `npm run watch`: 实时编译部署开发环境代码，依赖测试机的 receiver 文件，以及本地dev.config.js配置 `dev.config.js`。参考：<http://agroup.baidu.com/wise-survive/md/article/977636>
 
 ### 预编译
-预编译文件路径：/home/work/odp/tmp/odp/smarty/modules/{{name}}/
+预编译文件路径：/home/work/odp/tmp/odp/smarty/modules/{{projectName}}/
 预编译部署路径：/home/work/odp/

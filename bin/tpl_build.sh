@@ -15,7 +15,7 @@ echo "compile start"
 
 $PHP_PATH tpl_build_env.php
 cd -
-compile_tpl_path=chroot/home/work/odp/template/molecules/{{name}}/view
+compile_tpl_path=chroot/home/work/odp/template/molecules/{{projectName}}/view
 
 
 cd $compile_tpl_path
@@ -36,8 +36,8 @@ mkdir -p output
 cp -r chroot/home/work/odp/tmp output/
 chmod -R 755 output/tmp
 cd output
-mkdir -p template/molecules/{{name}}
-cp -r $BASE_DIR/dist/* template/molecules/{{name}}/
+mkdir -p template/molecules/{{projectName}}
+cp -r $BASE_DIR/dist/* template/molecules/{{projectName}}/
 tar -cjf ./template.bz2 ./template ./tmp
 
 rm -rf template
