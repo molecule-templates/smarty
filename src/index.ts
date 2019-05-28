@@ -1,5 +1,5 @@
 import { RenderEngine, Controller } from '@baidu/molecule'
-import { OriginData, PromptContent, ParsedData } from './data'
+import { OriginData, ParsedData } from './data'
 
 /**
  * class {{Uppername}}Controller
