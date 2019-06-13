@@ -1,1 +1,6 @@
-node_modules
+output/
+dist/
+node_modules/
+coverage/
+.vscode/
+dev.config.js

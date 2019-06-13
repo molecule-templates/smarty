@@ -1,4 +1,4 @@
-import { Data } from '@baidu/molecule'
+import { Data } from '@baidu/molecule';
 interface MostTop {}
 
 export interface OriginData extends Data {

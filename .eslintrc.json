@@ -1,0 +1,100 @@
+{
+  "extends": "standard",
+  "env": {
+    "mocha": true,
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "mocha",
+    "standard",
+    "@typescript-eslint",
+    "promise"
+  ],
+  "rules": {
+    "no-var": 2,
+    "prefer-const": 2,
+    "no-unused-vars": "off",
+    "max-lines": [
+      "error",
+      {
+        "max": 1000,
+        "skipBlankLines": true,
+        "skipComments": true
+      }
+    ],
+    "no-empty": "error",
+    "max-len": [
+      "error",
+      {
+        "code": 120
+      }
+    ],
+    "semi-style": [
+      "error",
+      "last"
+    ],
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 3,
+        "maxEOF": 1
+      }
+    ],
+    "valid-jsdoc": "error",
+    "indent": [
+      "error",
+      4,
+      {
+        "SwitchCase": 1,
+        "VariableDeclarator": 1,
+        "outerIIFEBody": 1,
+        "MemberExpression": 1,
+        "FunctionDeclaration": {
+          "parameters": 1,
+          "body": 1
+        },
+        "FunctionExpression": {
+          "parameters": 1,
+          "body": 1
+        },
+        "CallExpression": {
+          "arguments": 1
+        },
+        "ArrayExpression": 1,
+        "ObjectExpression": 1,
+        "ImportDeclaration": 1,
+        "flatTernaryExpressions": false,
+        "ignoreComments": false
+      }
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "line-comment-position": [
+      "error",
+      {
+        "position": "above"
+      }
+    ],
+    "multiline-comment-style": [
+      "warn",
+      "separate-lines"
+    ],
+    "import/export": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "none",
+        "ignoreRestSiblings": false
+      }
+    ],
+    "@typescript-eslint/class-name-casing": "error",
+    "@typescript-eslint/camelcase": "error",
+    "@typescript-eslint/interface-name-prefix": "error"
+  }
+}
