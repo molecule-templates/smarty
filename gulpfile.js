@@ -6,18 +6,19 @@ const tsProject = ts.createProject('tscompile.json');
 const less = require('gulp-less');
 const amd = require('gulp-amd-wrap').amdHook;
 const httpPush = require('gulp-deploy-http-push').httpPush;
-const toHtml = require('gulp-parse-to-html').parseToHtml;
+const uglify = require('gulp-uglify');
+const escapeString = require('gulp-html-inline-escape').escapeString;
+const ts2php = require('gulp-ts2php').ts2php;
+const ts2phpConfig = require('./ts2phprc');
 
 gulp.task('build:clean', function () {
-    return del(['dist/**/*', '!dist/index.php']);
+    return del(['dist/**/*']);
 });
 
 gulp.task('build:css', function () {
     return gulp.src(['src/**/*.less'])
         .pipe(less())
-        .pipe(toHtml({
-            type: 'style'
-        }))
+        .pipe(escapeString('style'))
         .pipe(gulp.dest('dist'));
 });
 
@@ -32,14 +33,22 @@ gulp.task('build:ts', function () {
             // 不参与amd-hook分析的文件
             exlude: ['/dist/**']
         }))
-        .pipe(toHtml({
-            type: 'script'
+        .pipe(abs({
+            '@molecule/toptip/main': '@molecule/toptip'
         }))
+        .pipe(uglify())
+        .pipe(escapeString('script'))
         .pipe(gulp.dest('dist'));
 });
 
 gulp.task('build:tpl', function () {
     return gulp.src(['src/**/*.tpl'])
+        .pipe(gulp.dest('dist'));
+});
+
+gulp.task('build:php', function () {
+    return gulp.src(['src/index.ts'])
+        .pipe(ts2php(ts2phpConfig))
         .pipe(gulp.dest('dist'));
 });
 
@@ -51,7 +60,7 @@ gulp.task('deploy', function () {
             {
                 host: HOST,
                 match: '/**/*',
-                to: '/home/work/odp/template/molecules/{{projectName}}'
+                to: '/home/work/search/view-ui/template/molecules/{{projectName}}'
             }
         ]));
 });
@@ -60,4 +69,4 @@ gulp.task('watch', function () {
     gulp.watch('./src/**', gulp.series('default', 'deploy'));
 });
 
-gulp.task('default', gulp.series('build:clean', gulp.parallel('build:css', 'build:ts', 'build:tpl')));
+gulp.task('default', gulp.series('build:clean', gulp.parallel('build:css', 'build:ts', 'build:tpl', 'build:php')));

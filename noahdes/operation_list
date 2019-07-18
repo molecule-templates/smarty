@@ -1,0 +1,11 @@
+PREPARE:
+    - BLOCK_MACHINE
+    - EXECUTE_CMD:cd src/noahdes && sh untar_template.sh
+    - EXECUTE_CMD:mkdir -p /home/work/odp/tmp && mkdir -p /home/work/search/view-ui/tmp
+MAIN:
+    - DERIVE_CONF
+    - DOWNLOAD_BIN
+    - DOWNLOAD_DATA
+    - BACKUP_AND_DEPLOY:TRUE
+END:
+    - UNBLOCK_MACHINE

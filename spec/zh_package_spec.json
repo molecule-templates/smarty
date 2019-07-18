@@ -1,0 +1,8 @@
+{
+    "data_source":"scm:///_-_PD_BL/",
+    "md5sum_file":"_-_PD_BL.md5",
+    "pre_action":"stop {{projectName}}",
+    "post_action":"start {{projectName}}",
+    "is_scm":true,
+    "dest_dir":"./template_deploy/{{projectName}}/"
+}
